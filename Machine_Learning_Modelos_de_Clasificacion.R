@@ -151,3 +151,5 @@ summary(vino_prob_k7Scale)
 vino_prediccion_k7_prueba <- knn(train = Datos.Train.Scale[-13], test = Datos.Test.Scale[-13], 
                                  cl= tipo_vino, k=7)
 table(vino_prediccion_k7_prueba, vino_real)
+
+
