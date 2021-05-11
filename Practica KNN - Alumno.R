@@ -127,6 +127,19 @@ mean(compra_real == k9)
 ## MATRIZ DE CONFUSION
 # --------------------------------------------------------------------------------------
 
+library(ggplot2)
 
+MatrizConfusion <- table(compra_real, compra_pred, dnn = c("Real", "Prediccion"))
 
+MatrizConfusion
 
+library(reshape2)
+
+x <- melt(MatrizConfusion)
+x
+
+ggplot(x, aes(Real, Prediccion))+
+  geom_point(aes(size=value), alpha=0.8, color="darkblue", show.legend = FALSE)+
+  geom_text(aes(label = value), color="white")+
+  scale_size(range=c(15,50))+
+  theme_bw()
